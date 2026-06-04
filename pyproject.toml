@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "canvascaliper"
+version = "0.1.0"
+description = "Native PySide6 port of the CanvasCaliper PNG/grid calibration prototype."
+requires-python = ">=3.10"
+dependencies = [
+  "PySide6==6.11.1",
+]
+
+[project.scripts]
+canvascaliper = "canvascaliper.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
