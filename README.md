@@ -1,22 +1,10 @@
 # CanvasCaliper
 
-CanvasCaliper is a native PySide6 desktop rebuild of `prototype_openstep_optimized.html`.
-It is a precision image measurement tool for loading a PNG, mapping it to real-world
+CanvasCaliper is a precision image measurement tool for loading a PNG, mapping it to real-world
 inch dimensions, overlaying a calibrated grid, sampling pixel colors, and inspecting
 selected grid regions at higher detail.
 
-The application keeps the visual language of the original web prototype: dark canvas,
-blood-red measurement lines, floating OPENSTEP-style tool panels, live cursor tags, and
-computed color palettes from the image or selected region.
-
 ## Quick Start
-
-No virtual environment is required.
-
-```powershell
-cd E:\SIMP\CanvasCaliper
-python .\CanvasCaliper.py
-```
 
 `CanvasCaliper.py` uses the Python interpreter you launch it with. If PySide6 is not
 installed for that interpreter, the launcher installs `PySide6==6.11.1` into the current
@@ -29,6 +17,21 @@ cd E:\SIMP\CanvasCaliper
 python -m pip install --user -r requirements.txt
 python -m canvascaliper
 ```
+
+## Main Canvas Controls
+
+- Left-click a grid cell to open the zoomed Grid Region inspector.
+- Left-click drag across cells to select a square grid region.
+- Right-click drag to pan the zoomed work view.
+- Use `Ctrl +` or `Ctrl -` to zoom in and out.
+- Use `Ctrl 0` or `Fit View` to return to the fitted view.
+- Use `Ctrl + mouse wheel` to zoom from anywhere in the main app window.
+- Use `Zoom +` and `Zoom -` in the Settings panel for button-driven zoom.
+- Use `Reset Offset` to return the image offset to zero.
+- Use `Clear Image` to unload the current PNG.
+
+The red cursor tag reports local X/Y thousandths within the current grid cell. For a
+2-inch grid cell, for example, the tag reports values from `0` to `1999`.
 
 ## Loading Images
 
@@ -76,21 +79,6 @@ Use `Image Offset` when the image origin does not align with the real canvas ori
 
 Click `Use PNG Specs` when you want the image size fields to be filled from the PNG's
 detected pixel dimensions and PPI.
-
-## Main Canvas Controls
-
-- Left-click a grid cell to open the zoomed Grid Region inspector.
-- Left-click drag across cells to select a square grid region.
-- Right-click drag to pan the zoomed work view.
-- Use `Ctrl +` or `Ctrl -` to zoom in and out.
-- Use `Ctrl 0` or `Fit View` to return to the fitted view.
-- Use `Ctrl + mouse wheel` to zoom from anywhere in the main app window.
-- Use `Zoom +` and `Zoom -` in the Settings panel for button-driven zoom.
-- Use `Reset Offset` to return the image offset to zero.
-- Use `Clear Image` to unload the current PNG.
-
-The red cursor tag reports local X/Y thousandths within the current grid cell. For a
-2-inch grid cell, for example, the tag reports values from `0` to `1999`.
 
 ## Grid Region Inspector
 
@@ -179,23 +167,7 @@ CanvasCaliper/
     main.py                 application, widgets, workers, rendering, palette logic
 ```
 
-## Troubleshooting
-
-If `python .\CanvasCaliper.py` cannot install PySide6, install it manually:
-
-```powershell
-python -m pip install --user PySide6==6.11.1
-python .\CanvasCaliper.py
-```
-
-If multiple Python versions are installed, run the launcher with the exact interpreter
-you want to use:
-
-```powershell
-py -3.12 .\CanvasCaliper.py
-```
-
-## Changelog
+## CHANGELOG
 
 ### 2026-06-04
 
