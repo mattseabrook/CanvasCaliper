@@ -4,6 +4,8 @@ CanvasCaliper is a precision image measurement tool for loading a PNG, mapping i
 inch dimensions, overlaying a calibrated grid, sampling pixel colors, and inspecting
 selected grid regions at higher detail.
 
+![CanvasCaliper screenshot showing a PNG with a grid overlay, rulers, and a palette panel.](canvascaliper.png)
+
 ## Quick Start
 
 `CanvasCaliper.py` uses the Python interpreter you launch it with. If PySide6 is not
