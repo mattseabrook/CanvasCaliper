@@ -14,8 +14,7 @@ user site-packages and then starts the app.
 
 Manual install is also supported:
 
-```powershell
-cd E:\SIMP\CanvasCaliper
+```shell
 python -m pip install --user -r requirements.txt
 python -m canvascaliper
 ```
@@ -148,8 +147,7 @@ Important performance choices:
 The intelligence of the design is in its specificity: this is not just "a grid on an
 image." It models the real production problem of translating a source PNG into physical
 canvas inches, handling PPI, offset, bleed, measured grid cells, local thousandths, and
-region-local color analysis. Those details are exactly where GUI tools for artists and
-technical directors either become useful or become noise.
+region-local color analysis.
 
 The PySide6 boundary is also deliberate. Qt/C++ handles windows, events, painting,
 image scaling, and thread scheduling. Python handles calibration state, interaction
@@ -173,25 +171,6 @@ CanvasCaliper/
 
 ### 2026-06-04
 
-- Started by preserving the web prototype's core intent: a calibrated PNG canvas with
-  inch-based image sizing, real canvas bounds, grid controls, offsets, ruler overlays,
-  live pixel sampling, and local thousandths readouts.
-- Chose a native PySide6 implementation instead of embedding the HTML, so the tool could
-  demonstrate real desktop GUI construction, Qt event handling, custom painting, and
-  production-style state management.
-- Added a no-venv launcher so the app can run from the user's normal system Python while
-  still pinning the current PySide6 dependency.
-- Built the first pass of the interface around floating OPENSTEP-style Settings and
-  Palette panels, matching the visual language of the prototype while keeping the app
-  practical for repeated technical use.
-- Added PNG `pHYs` metadata detection, a `Use PNG Specs` workflow, and separate controls
-  for source image size versus real canvas/grid bounds.
-- Added full-image palette extraction and then region-local palette extraction, because
-  the useful color question changes depending on whether the user is inspecting the
-  entire PNG or a specific selected grid area.
-- Added the Grid Region inspector so a single cell or square cell selection can be
-  examined with its own rulers, crop preview, local palette, live cursor sampling, and
-  enlarged X/Y thousandths tag.
 - Identified UI freezes when large PNGs or selected regions were processed synchronously,
   then moved PNG loading, preview generation, and palette computation to `QThreadPool`
   workers.
@@ -216,6 +195,3 @@ CanvasCaliper/
   maximize button, and remove a redundant in-window `Close` button.
 - Added real-time and on-exit persistence for main-window size, position, state, and
   monitor name, with monitor-aware restore on the next launch.
-- Documented the resulting tool as both a usable application and an architecture example:
-  Python owns calibration/interactions, while Qt/C++ handles rendering, image scaling,
-  windowing, and threaded execution.
