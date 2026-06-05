@@ -85,6 +85,8 @@ detected pixel dimensions and PPI.
 
 The Grid Region window opens when a cell or square region is selected.
 
+![Grid Region inspector showing a zoomed crop of the selected area with rulers, grid lines, and a color palette.](gridregion.png)
+
 It shows:
 
 - A zoomed crop of the selected region.
@@ -112,19 +114,9 @@ The main Palette panel shows:
 The Grid Region inspector computes a separate palette for only the selected region.
 This makes small local color shifts visible without being drowned out by the full image.
 
-## Floating Panels
-
-The Settings and Palette panels can be dragged by their title bars.
-
-- Panels stay inside the client window.
-- If a saved position would fall outside the current window size, it is clipped back
-  into visible space.
-- Settings are persisted between runs through Qt `QSettings`.
-
 ## Performance And Architecture
 
-CanvasCaliper is intentionally built as a native PySide6 application rather than a web
-view wrapper. The design uses Qt's C++ rendering and image classes where they matter,
+CanvasCaliper uses Qt's C++ rendering and image classes where they matter,
 while keeping Python responsible for orchestration and tool behavior.
 
 Important performance choices:
